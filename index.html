@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Warden - Discord Moderation Bot</title>
+
+        <!-- JQuery 3.3.1 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Scripts -->
+        <script src="scripts/effects.js"></script>
+
+        <!-- Styles -->
+        <link href="styles/index.css" rel="stylesheet" />
+        <link href="styles/fonts.css" rel="stylesheet" />
+
+        <!-- FontAwesome 4.7 -->
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    </head>
+    <body>
+        <div class="tooltips"></div>
+        <button id="back-to-top"><i class="fa fa-arrow-up"></i> Back to the top</button>
+        <nav class="nav">
+            <div class="side">
+                <img src="img/avatar.png" class="logo" />
+                <a data-tooltip="You are here" class="link active">Welcome</a>
+                <a class="link"><i class="fa fa-eye"></i> Overview</a>
+                <a class="link"><i class="fa fa-bookmark"></i> Features</a>
+                <a class="link"><i class="fa fa-book"></i> Commands</a>
+                <a id="support" class="link"><i class="fa fa-support"></i> Support</a>
+            </div>
+            <div class="side right">
+                <div class="search-wrapper">
+                    <input spellcheck="false" placeholder="Search" class="search" />
+                    <i class="fa fa-search"></i>
+                </div>
+                <a id="dashboard" class="link"><i class="fa fa-user"></i> Web Dashboard</a>
+            </div>
+        </nav>
+        <div class="landing">
+            <div class="info">
+                <img class="avatar" src="img/avatar.png" />
+                <div class="title">Warden</div>
+                <div class="subtitle">Modern, fluid & powerful Discord moderation bot for your best needs.</div>
+                <a class="add-bot" href="https://discordapp.com/oauth2/authorize?client_id=446736307172016138&scope=bot&permission=8" target="_blank"><i class="fa fa-plus"></i> Add to your server</a>
+                <a class="add-bot-no-perms" href="https://discordapp.com/oauth2/authorize?client_id=446736307172016138&scope=bot" target="_blank">Add without permissions</a>
+            </div>
+            <div class="preview">
+                <img src="img/preview.gif" />
+            </div>
+        </div>
+        <div id="sect-performance" class="sect">
+            <div class="title"><strong>Unbeatable</strong> Performance</div>
+            <div class="subtitle">Ready when you are. Warden is hosted on premium VPS with <strong>99.97%</strong> uptime. We'll always be there when you need us.</div>
+            <div class="visual">
+                <div data-tooltip="Approximation only." class="item">
+                    <i class="fa fa-clock-o"></i>
+                    <div class="text">Hosted on US servers, ~<strong>30</strong> ms average ping</div>
+                </div>
+                <div class="item">
+                    <i class="fa fa-tachometer"></i>
+                    <div class="text">Up to <strong>5,000</strong> requests per second per guild</div>
+                </div>
+            </div>
+        </div>
+        <div id="sect-custom" class="sect alt">
+            <div class="title">Features</div>
+            <div class="subtitle">Tailor Warden to suit server's needs. Warden is designed to be almost completely customizable.</div>
+            <div class="visual with-rows" style="grid-template-rows: repeat(2, auto)">
+                <div class="row" style="grid-template-columns: repeat(3, auto)">
+                    <div class="item">
+                        <i class="fa fa-pencil"></i>
+                        <div class="text">Customize every aspect of Warden, including responses</div>
+                    </div>
+                    <div class="item">
+                        <i class="fa fa-toggle-on"></i>
+                        <div class="text">Easily enable or disable desired features anytime</div>
+                    </div>
+                    <div class="item">
+                        <i class="fa fa-cubes"></i>
+                        <div class="text">Add custom plugins and extensions</div>
+                    </div>
+                </div>
+                <div class="row" style="grid-template-columns: repeat(3, auto)">
+                    <div class="item">
+                        <i class="fa fa-database"></i>
+                        <div class="text">Automatically log every message and action</div>
+                    </div>
+                    <div class="item">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <div class="text">Receive alerts on suspicious activity</div>
+                    </div>
+                    <div class="item">
+                        <i class="fa fa-hashtag"></i>
+                        <div class="text">Grant personalized permissions to specific people</div>
+                    </div>
+                </div>
+            </div>
+            <div class="end">View All Features</div>
+        </div>
+        <div id="sect-spam" class="sect">
+            <div class="title"><strong>Powerful</strong> Spam Detection</div>
+            <div class="subtitle">Criminals beware! Using advanced anti-spam algorithms, Warden's spam detection system is able to accurately detect and prevent spam keeping your server clean from trolls.</div>
+            <div class="visual">
+                <div class="item">
+                    <i class="fa fa-eye"></i>
+                    <div class="text">Track down spammers by keeping a record of every member</div>
+                </div>
+                <div class="item">
+                    <i class="fa fa-vcard"></i>
+                    <div class="text">Automatically tag &amp; identify members to increase priority</div>
+                </div>
+                <div class="item">
+                    <i class="fa fa-history"></i>
+                    <div class="text">Automatic periodic backups of guild data such as channels, roles, and settings</div>
+                </div>
+            </div>
+        </div>
+        <div class="contact">
+            <div class="title">Get In Touch</div>
+            <div class="content">
+                <div class="support-server">
+                    <div class="title">Need some help? Join our support server.</div>
+                    <iframe src="https://discordapp.com/widget?id=489543738738081823&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+                </div>
+                <div class="mailing-list">
+                    <div class="title">Subscribe to our mailing list</div>
+                    <div class="subtitle">Join to receive exclusive updates and announcements right in your mailbox.</div>
+                    <div class="subscribe-input">
+                        <input spellcheck="false" placeholder="johndoe@example.com" />
+                        <button class="subscribe"><i class="fa fa-check"></i> Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="map">
+
+            </div>
+            <div class="info">
+                <div class="copyright">&copy;2018 CloudRex. Created with <i class="fa fa-heart"></i> by Atlas.</div>
+                <div class="legal">
+                    <a class="link">Terms</a>
+                    <a class="link">Privacy</a>
+                    <a class="link">Security</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

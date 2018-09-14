@@ -1,0 +1,641 @@
+@keyframes beat {
+    40% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1.0);
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    70% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes float {
+    to {
+        transform: translate(0, -7px);
+    }
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0);
+    }
+
+    10% {
+        transform: scale(0.5);
+    }
+
+    20% {
+        transform: scale(0.6);
+    }
+
+    30% {
+        transform: scale(0.7);
+    }
+
+    40% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+* {
+    font-family: "Nunito Regular", "Segoe UI", sans-serif;
+    color: #333;
+    cursor: default;
+    user-select: none;
+    outline: none;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+html {
+    background-color: #fff;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(193deg, rgba(52,152,219,1) 0%, rgba(0,128,128,1) 100%);
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 32px;
+    top: 0;
+    z-index: 99;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.nav.bg {
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: none;
+}
+
+.nav * {
+    color: #fff;
+}
+
+.nav > .side {
+    display: flex;
+    align-items: center;
+}
+
+.nav > .side.right {
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+}
+
+.nav > .side > .link {
+    border-radius: 4px;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.nav > .side > .link#dashboard {
+    background-color: #2C80B8;
+}
+
+.nav > .side > .link#dashboard:hover {
+    background-color: #fff;
+}
+
+.nav > .side > .link#dashboard:hover,
+.nav > .side > .link#dashboard:hover > i.fa {
+    color: #2C80B8;
+}
+
+.nav > .side > .link > i.fa {
+    margin-right: 3px;
+}
+
+.nav > .side > .link:not(:last-child) {
+    margin-right: 8px;
+}
+
+.nav > .side > .link:not(.active):not(.discord):hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav > .side >.link.active {
+    background-color: #fff;
+    color: #000;
+    border-bottom: 1px solid #888;
+}
+
+.nav > .side >.link.discord {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    color: rgba(52,152,219,1);
+}
+
+.nav > .side >.link.discord > .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.nav > .side > .logo {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 26px;
+    cursor: pointer;
+    transition: border-radius 0.2s, opacity 0.4s;
+    object-fit: cover;
+    opacity: 0.95;
+}
+
+.nav > .side > .logo:hover {
+    border-radius: 15px !important;
+    opacity: 1;
+}
+
+.nav > .side > .search-wrapper {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 12px;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.nav > .side > .search-wrapper:focus-within {
+    border-color: #fff;
+}
+
+.nav > .side > .search-wrapper > .search {
+    font-size: 15px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    width: 190px;
+    transition: all 0.2s ease;
+    padding: 8px 0;
+    padding-left: 12px;
+    cursor: auto;
+}
+
+.nav > .side > .search-wrapper > .search::placeholder {
+    color: #ddd;
+}
+
+.nav > .side > .search-wrapper > .search:focus {
+    width: 250px;
+}
+
+/**
+Set position to relative for overlap to work
+ */
+.landing {
+    position: relative;
+    padding-top: 75px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 60% auto;
+    height: calc(100vh - 85px);
+    text-align: center;
+    background: linear-gradient(193deg, rgba(52,152,219,1) 0%, rgba(0,128,128,1) 100%);
+}
+
+.landing * {
+    color: #fff !important;
+}
+
+.landing > .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing > .info > .avatar {
+    margin-bottom: 35px;
+    border-radius: 50%;
+    border: 6px solid #666;
+    border-top: none;
+    border-right: none;
+    animation: float 4s ease 1.5s infinite alternate;
+}
+
+.landing > .info > .title {
+    margin-bottom: 10px;
+    font-family: "Nunito SemiBold", "Segeo UI", sans-serif;
+    font-size: 40px;
+}
+
+.landing > .info > .subtitle {
+    font-size: 17px;
+    max-width: 400px;
+}
+
+.landing > .info > .add-bot {
+    margin-top: 35px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    border-top-right-radius: 0;
+    padding: 10px 25px;
+    font-size: 19px;
+    text-decoration: none;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.landing > .info > .add-bot-no-perms {
+    margin-top: 15px;
+    padding-bottom: 1px;
+    text-decoration: none !important;
+    border-bottom: 1px solid #fff;
+}
+
+.landing > .info > .add-bot-no-perms:hover {
+    background-color: #fff;
+    color: #3498DB !important;
+}
+
+.landing > .info > .add-bot > i.fa {
+    font-size: 19px;
+}
+
+.landing > .info > .add-bot:hover,
+.landing > .info > .add-bot:focus {
+    background-color: #fff;
+    color: #3498db !important;
+    border-color: transparent;
+    border-radius: 3px;
+}
+
+.landing > .info > .add-bot:hover > i.fa,
+.landing > .info > .add-bot:focus > i.fa {
+    color: #3498db !important;
+}
+
+.landing > .preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+}
+
+.landing > .preview:hover {
+    transform: translate(-200px);
+}
+
+.landing > .preview > img {
+    border-radius: 8px;
+    box-shadow: 0 0 16px #33373b;
+}
+
+.sect {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px 0;
+    flex-direction: column;
+}
+
+.sect.alt {
+    background-color: #3498DB;
+}
+
+.sect.alt * {
+    color: #fff !important;
+}
+
+.sect > .title {
+    font-family: "Nunito SemiBold", "Segeo UI", sans-serif;
+    font-size: 43px;
+    margin-bottom: 40px;
+}
+
+.sect.alt > .title > strong {
+    background-color: #fff;
+    color: #3498DB !important;
+    padding: 0 10px;
+    border-radius: 3px;
+}
+
+.sect > .title > strong {
+    background-color: #3498DB;
+    color: #fff !important;
+    padding: 0 10px;
+    border-radius: 3px;
+}
+
+.sect > .subtitle {
+    font-size: 20px;
+    max-width: 800px;
+    line-height: 180%;
+}
+
+.sect > .visual {
+    margin-top: 60px;
+    display: flex;
+}
+
+.sect > .visual > .row {
+    display: grid;
+    grid-gap: 40px;
+}
+
+.sect > .visual.with-rows {
+    flex-direction: column;
+}
+
+.sect > .visual > .row:not(:first-child) {
+    margin-top: 40px;
+}
+
+.sect > .visual .item {
+    padding: 50px;
+    border: 1px solid #eee;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.1s, transform 0.2s;
+    border-radius: 2px;
+}
+
+.sect > .visual .item > .text {
+    font-size: 20px;
+}
+
+.sect > .visual .item > i.fa {
+    font-size: 80px;
+    color: #3498DB;
+    margin-bottom: 30px;
+}
+
+.sect > .visual .item:hover {
+    background-color: #3498DB;
+    transform: translate(0, -15px);
+    border-color: transparent;
+}
+
+.sect > .visual .item:hover * {
+    color: #fff !important;
+}
+
+.sect > .visual > .item:not(:last-child) {
+    margin-right: 40px;
+}
+
+.sect > .end {
+    margin-top: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    padding: 5px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.sect > .end:hover {
+    border-color: #fff;
+    transform: translate(0, -3px);
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 100;
+    background-color: #111;
+    padding: 5px 13px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    color: #fff;
+    animation: appear 0.1s ease;
+    max-width: 200px;
+    text-align: center;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    border-bottom-width: 3px;
+    transition: transform 0.1s;
+    background-color: #eee;
+    opacity: 0.6;
+}
+
+#back-to-top > i.fa {
+    color: #555;
+    margin-right: 2px;
+}
+
+#back-to-top:hover {
+    background-color: #2ecc71;
+    border-color: #27ae60;
+    color: #fff;
+    transform: translate(0, -3px);
+    opacity: 1;
+}
+
+#back-to-top:hover > i.fa {
+    color: #fff;
+    cursor: pointer;
+}
+
+.sect.alt > .visual .item:hover {
+    background-color: #fff;
+}
+
+.sect.alt > .visual .item:hover * {
+    color: #3498DB !important;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+    border-top: 1px solid #bbb;
+    background-color: #FCFCFC;
+}
+
+.contact > br {
+    color: #000;
+    border-top-color: #000;
+}
+
+.contact > .title {
+    font-size: 50px;
+    font-family: "Nunito Light", "Segeo UI", sans-serif;
+    margin-bottom: 50px;
+}
+
+.contact > .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact > .content > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact > .content > .support-server > .title {
+    font-size: 17px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.contact > .content > .mailing-list {
+    align-items: flex-end;
+}
+
+.contact > .content > .mailing-list > .title {
+    font-family: "Nunito SemiBold", "Segeo UI", sans-serif;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.contact > .content > .mailing-list > .subtitle {
+    font-size: 18px;
+    max-width: 400px;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.contact > .content > .mailing-list > .subscribe-input {
+    border: 1px dashed #aaa;
+    padding: 8px 10px;
+    transition: background-color 0.2s;
+}
+
+.contact > .content > .mailing-list > .subscribe-input:focus-within {
+    background-color: #3498DB;
+    border-style: solid;
+    border-color: #2875A8;
+}
+
+.contact > .content > .mailing-list > .subscribe-input:focus-within > .subscribe,
+.contact > .content > .mailing-list > .subscribe-input:focus-within > .subscribe > i.fa {
+    color: #fff;
+}
+
+.contact > .content > .mailing-list > .subscribe-input:focus-within > .subscribe {
+    border-color: transparent;
+    background-color: #2E84BF;:
+    border-radius: 3px;
+}
+
+.contact > .content > .mailing-list > .subscribe-input:focus-within > .subscribe:hover {
+    background-color: #fff;
+    color: #3292D2;
+}
+
+.contact > .content > .mailing-list > .subscribe-input:focus-within > .subscribe:hover > i.fa {
+    color: #3292D2;
+    cursor: pointer;
+}
+
+.contact > .content > .mailing-list > .subscribe-input > input {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: auto;
+    padding: 3px 6px;
+}
+
+.contact > .content > .mailing-list > .subscribe-input > input:focus {
+    background-color: #3498DB;
+    color: #fff;
+}
+
+.contact > .content > .mailing-list > .subscribe-input > input:focus::placeholder {
+    color: #eee;
+}
+
+.contact > .content > .mailing-list > .subscribe-input > .subscribe {
+    background: none;
+    border: 1px dashed #aaa;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.footer {
+    /**/
+}
+
+.footer > .info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 25px 0;
+}
+
+.footer > .info * {
+    color: #fff;
+}
+
+.footer > .info > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer > .info > .copyright > i.fa.fa-heart {
+    animation: beat 1.3s infinite linear;
+    margin: 0 5px;
+}
+
+.footer > .info > .legal > a.link {
+    border-bottom: 1px solid transparent;
+}
+
+.footer > .info > .legal > a.link:not(:last-child) {
+    margin-right: 14px;
+}
+
+.footer > .info > .legal > a.link:hover {
+    border-color: #fff;
+}
